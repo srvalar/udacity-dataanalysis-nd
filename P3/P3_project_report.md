@@ -15,7 +15,7 @@ Data source: https://mapzen.com/data/metro-extracts/metro/san-jose_california/
 I imported the data and created a sample file of 10MB size to test and audit the data. The sample file code is exactly the same as provided in the Udacity lecture notes, with a k value = 28.
 
 
-I then audited the file using the data_audit.py script. The issues I found were:
+I then audited the file using the [data_audit.py](/P3/data_audit.py) script. The issues I found were:
 * Street types were inconsistently formatted
 * Street names had all sorts of short-forms and abbreviations in them
 * Many of the postal codes had formatting issues
