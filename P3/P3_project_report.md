@@ -103,6 +103,7 @@ for street_type, ways in street_types.iteritems():
         print name, "=>", better_name
 ```
 
+```python
 Gaundabert Ln => Gaundabert Lane
 Branham Ln => Branham Lane
 Mt Hamilton Rd => Mount Hamilton Road
@@ -112,7 +113,7 @@ S. Bascom => South Bascom
 N 1st street => North 1st Street
 Foxworthy Ave => Foxworthy Avenue
 Perivale Ct => Perivale Court
-
+```
 
 ```python
 for zip in postcodes:
@@ -120,12 +121,14 @@ for zip in postcodes:
     print zip, "=>", new_zip_code
 ```
 
+```python
 CA 95113 => 95113
 95014-246 => 95014
 CUPERTINO => None
 95014-2143;95014-2144 => 95014
 951251 => 95125
 94087‎ => 94087
+```
 
 <br></br>
 ## Data Processing for XML -> CSV conversion
