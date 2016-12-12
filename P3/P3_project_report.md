@@ -93,7 +93,7 @@ ca_in_zipcode_re = re.compile(r'^CA(.*)')
 <br></br>
 ## Data Update
 
-I used update functions in the data_update.py file to update the street type, street names and zip code issues discussed above.
+I used update functions in the [data_update.py](/P3/data_update.py) file to update the street type, street names and zip code issues discussed above.
 
 
 ```python
@@ -131,7 +131,7 @@ CUPERTINO => None
 ## Data Processing for XML -> CSV conversion
 
 
-I then used the functions in the data_processing.py script to create CSV tables for each of the nodes, nodes_tags, ways, ways_tags and ways_nodes XML data.
+I then used the functions in the [data_processing.py](/P3/data_processing.py) script to create CSV tables for each of the nodes, nodes_tags, ways, ways_tags and ways_nodes XML data.
 
 In this python script, I updated the provided shape_element function to use my above-defined update functions for street types, street names and zip codes. The rest of the code is used as-is from the Udacity course code.
 
@@ -192,7 +192,7 @@ def shape_element(element, node_attr_fields=NODE_FIELDS, way_attr_fields=WAY_FIE
 ## SQL Data Import
 
 
-I then used the code written in the sql_data_import.py script to import the CSV files into SQL tables to use for further analysis
+I then used the code written in the [sql_data_import.py](/P3/sql_data_import.py) script to import the CSV files into SQL tables to use for further analysis
 
 <br></br>
 ## Data Analysis
