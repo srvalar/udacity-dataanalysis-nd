@@ -202,6 +202,7 @@ I then used the code written in the [sql_data_import.py](/P3/sql_data_import.py)
 
 ### File sizes
 
+```python
 OSM FILES
 san-jose_california.osm      284.4 MB
 sample.osm                    10.3 MB
@@ -212,6 +213,7 @@ nodes_tags.csv                 2.6 MB
 ways.csv                      10.1 MB
 ways_tags.csv                 21.4 MB
 ways_nodes.csv                35.5 MB
+```
 
 #### Number of Nodes
 
