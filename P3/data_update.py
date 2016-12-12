@@ -60,7 +60,7 @@ def update_zip_code(zipcode):
     
     # Return as-is if not in problematic set
     if match:
-        return zipcode
+        return zipcode[0:5]
     
     # Update if term 'CA' found
     elif ca_in_zipcode:        
