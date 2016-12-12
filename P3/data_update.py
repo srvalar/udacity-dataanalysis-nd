@@ -9,7 +9,7 @@ from collections import defaultdict
 import copy
 import sqlite3
 
-import data_audit
+from data_audit import *
 
 def update_street_tags(name):
     '''
