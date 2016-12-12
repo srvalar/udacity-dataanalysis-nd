@@ -275,6 +275,7 @@ pprint.pprint(cur.fetchall())
 
 Looks like restaurants, cafes amd fast food amenities make up the majority of the 'amenity' type
 
+```python
 [(u'restaurant', 766),
  (u'fast_food', 369),
  (u'cafe', 224),
@@ -285,6 +286,7 @@ Looks like restaurants, cafes amd fast food amenities make up the majority of th
  (u'toilets', 148),
  (u'fuel', 123),
  (u'bank', 116)]
+```
 
 #### Top food-related amenities by type
 
