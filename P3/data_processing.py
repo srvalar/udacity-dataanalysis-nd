@@ -9,8 +9,8 @@ from collections import defaultdict
 import copy
 import sqlite3
 
-import data_audit
-import data_update
+from data_audit import *
+from data_update import *
 
 NODES_PATH = "nodes.csv"
 NODE_TAGS_PATH = "nodes_tags.csv"
