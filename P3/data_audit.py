@@ -147,6 +147,8 @@ def audit_postcode(osmfile):
 
 
 if __name__ == '__main__':
-  street_types = audit(SAN_JOSE_DATA)
+  sample = "sj_sample.osm"
+  street_types = audit(sample)
   pprint.pprint(dict(street_types))
-  postcodes = audit_postcode(SAN_JOSE_DATA)
+  postcodes = audit_postcode(sample)
+

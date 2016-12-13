@@ -1,4 +1,6 @@
 import sqlite3
+import csv
+import pprint
 
 sqlite_file = 'sanjose_osm_project.db'
 conn = sqlite3.connect(sqlite_file)

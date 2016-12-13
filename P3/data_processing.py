@@ -11,6 +11,7 @@ import sqlite3
 
 from data_audit import *
 from data_update import *
+from schema import *
 
 NODES_PATH = "nodes.csv"
 NODE_TAGS_PATH = "nodes_tags.csv"
@@ -208,5 +209,6 @@ def process_map(file_in, validate):
 # Validating the data
 if __name__ == '__main__':
     # Note: Validation is ~ 10X slower. For the project consider using a small
-    # sample of the map when validating.   
-    process_map(OSM_FILE, validate=False)
+    # sample of the map when validating.
+    sample = "sj_sample.osm"
+    process_map(sample, validate=True)
