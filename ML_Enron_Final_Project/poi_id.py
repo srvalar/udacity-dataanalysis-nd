@@ -5,7 +5,7 @@ import pickle
 sys.path.append("../tools/")
 
 from feature_format import featureFormat, targetFeatureSplit
-from tester import dump_classifier_and_data
+from tester import dump_classifier_and_data, test_classifier
 
 ### Task 1: Select what features you'll use.
 ### features_list is a list of strings, each of which is a feature name.
@@ -99,7 +99,7 @@ def TuneAdaBoostParams(n_estimators, learning_rate, rs):
         for j in learning_rate:
             print "\nn_estimators = ", i, ", learning_rate = ", j, "\n"
             ab_clf = AdaBoostClassifier(n_estimators = i, learning_rate = j, random_state = rs)
-            test_classifier(ab_clf, data_dict, features_list)
+            test_classifier(ab_clf, my_dataset, features_list)
 
 # limiting the values in the 2 lists for tester.py as they each take a while to run
 n_estimators_list = [50, 60]
@@ -108,7 +108,7 @@ TuneAdaBoostParams(n_estimators_list, learning_rate_list, 202)
 
 # best performance
 ab_clf = AdaBoostClassifier(n_estimators = 60, learning_rate = 0.99, random_state = 202)
-test_classifier(ab_clf, data_dict, features_list)
+test_classifier(ab_clf, my_dataset, features_list)
 
 ### Task 6: Dump your classifier, dataset, and features_list so anyone can
 ### check your results. You do not need to change anything below, but make sure
