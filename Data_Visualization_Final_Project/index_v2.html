@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Titanic Survivors Data Visualization</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+</head>
+
+<!-- Adding some contextual text before adding charts-->
+<body>
+<h2><span>Titanic Survivors Data Visualization</span></h2>
+<div>
+    <p>
+        On April 15, 1912, the RMS Titanic sank in the North Atlantic Ocean after colliding with an 
+        iceberg on her maiden voyage. Almost 70% of her passengers perished at sea.
+        <br>
+        This data visualization looks at survival rate for passengers as sliced by various categories.
+        <br>
+        It uses an abbreviated dataset of 891 out of the total 2224 passengers on board the Titanic, 
+        as categorical information was not available for all passengers.
+    </p>
+</div>
+
+<!-- Charts Section-->
+
+<!-- Heading for Overview Chart -->
+<h3>
+    <br>Overview of Passenger Counts by Passenger Class and Port of Embarkation</br>
+</h3>
+
+<div>
+    <div id="overview">
+    <script align = "center" type="text/javascript"> 
+    
+    //Adding Chart 1 with dimensions
+    var svg_o = dimple.newSvg("#overview", 800, 250);
+
+    //Defining data for chart
+    d3.csv("data/totals-v2.csv", function(data){
+        var overviewChart = new dimple.chart(svg_o, data);
+        overviewChart.setBounds(60, 30, 725, 175);
+        
+        //Adding x axis with title
+        x = overviewChart.addMeasureAxis("x", "Count");
+        x.title = "Passenger Counts";
+
+        //Adding y axis with formatting and title
+        y = overviewChart.addCategoryAxis("y", "Passenger Class");
+        y.addOrderRule(["1st Class", "2nd Class", "3rd Class"]);
+        y.title = "Passenger Class";
+        
+        //Specifying chart type and adding legend
+        overviewChart.addSeries("Port of Embarkation",dimple.plot.bar);
+        overviewChart.addLegend(240, 10, 330, 20, "right");
+        
+        //Adding interactions
+        overviewChart.ease = "bounce";
+        overviewChart.staggerDraw = true;
+    
+        overviewChart.draw(1000);
+    });
+    </script>
+</div>
+
+<!-- Heading for chart 1 -->
+<h3>
+    <br>Survival Rate % for Gender and Passenger Class</br>
+</h3>
+
+<div>
+    <div id="chart1"> 
+    <script align = "center" type="text/javascript"> 
+    
+    //Adding Chart 1 with dimensions
+    var svg1 = dimple.newSvg("#chart1", 800, 250);
+
+    //Defining data for chart
+    d3.csv("data/gender-class-v2.csv", function(data){
+        var myChart1 = new dimple.chart(svg1, data);
+        myChart1.setBounds(60, 30, 725, 175);
+        
+        //Adding x axis with ordering and title
+        x = myChart1.addCategoryAxis("x", ["Class", "Gender"]);
+        x.addOrderRule(["1st Class", "2nd Class", "3rd Class"]);
+        x.addOrderRule(["Female", "Male"]);
+        x.title = "Passenger Class & Gender";
+
+        //Adding y axis with formatting and title
+        y = myChart1.addMeasureAxis("y", "Survival Rate");
+        y.tickFormat = ",.f";
+        y.title = "Survival Rate %";
+        
+        //Specifying chart type and adding legend
+        myChart1.addSeries("Gender",dimple.plot.bar);
+        myChart1.addLegend(240, 10, 330, 20, "right");
+        
+        //Adding interactions
+        myChart1.ease = "bounce";
+        myChart1.staggerDraw = true;
+    
+        myChart1.draw(1000);
+        x.title = "Passenger Class";
+    });
+    </script>
+</div>
+
+<!-- Heading for chart 2 -->
+<h3>
+    <br>Survival Rate % for Various Age Groups</br>
+</h3>
+
+<div>
+    <div id="chart2">
+    <script type="text/javascript">
+    
+    //Adding Chart 2 with dimensions
+    var svg2 = dimple.newSvg("#chart2", 800, 250);
+    
+    //Defining data for chart
+    d3.csv("data/age-groups-v2.csv", function(data){
+        var myChart2 = new dimple.chart(svg2, data);
+        myChart2.setBounds(60, 30, 725, 175);
+        
+        //Adding x axis with ordering and title
+        x = myChart2.addCategoryAxis("x", "Age Group");
+        x.addOrderRule(["Children (0-14)", "Youth (15- 24)", "Young Adults (25 - 34)", 
+        "Middle Aged (35 - 49)", "Elderly (50 plus)"]);
+        x.title = "Age Group";
+        
+        //Adding y axis with formatting and title
+        y = myChart2.addMeasureAxis("y", "Survival Rate");
+        y.tickFormat = ",.f";
+        y.title = "Survival Rate %";
+
+        //Specifying chart type
+        myChart2.addSeries(null,dimple.plot.scatter);
+        myChart2.addSeries(null,dimple.plot.line);
+
+        //Adding interactions
+        myChart2.ease = "bounce";
+        myChart2.staggerDraw = true;
+    
+        myChart2.draw(1000);
+    });
+    </script>
+</div>
+
+<!-- Heading for chart 3 -->
+<h3>
+    <br>Survival Rate % for Port of Embarkation</br>
+</h3>
+
+<div>
+    <div id="chart3">
+    <script type="text/javascript">
+    
+    //Adding Chart 3 with dimensions
+    var svg3 = dimple.newSvg("#chart3", 800, 250);
+    
+    //Defining data for chart
+    d3.csv("data/port-v2.csv", function(data){
+        var myChart3 = new dimple.chart(svg3, data);
+        myChart3.setBounds(60, 30, 725, 175);
+
+        //Adding x axis with ordering and title
+        x = myChart3.addCategoryAxis("x", "Port of Embarkation");
+        x.addOrderRule(["Southampton", "Cherbourg", "Queenstown"]);
+        x.title = "Port of Embarkation";
+
+        //Adding y axis with formatting and title
+        y = myChart3.addMeasureAxis("y", "Survival Rate");
+        y.tickFormat = ",.f";
+        y.title = "Survival Rate %";
+
+        //Specifying chart type
+        myChart3.addSeries(null,dimple.plot.bar);
+
+        //Adding interactions
+        myChart3.ease = "bounce";
+        myChart3.staggerDraw = true;
+    
+        myChart3.draw(1000);
+    });
+    </script>
+</div>
+</body>
+</html>
